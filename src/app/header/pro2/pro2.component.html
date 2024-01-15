@@ -1,0 +1,287 @@
+<nav>
+  <div class="menu-icon">
+    <span class="fas fa-bars"></span>
+  </div>
+
+  <div class="logo">
+    <h3 class="hd3" style="margin-top: 4%">
+      <img
+        class="im-log"
+        style="
+          height: 55px;
+          width: 60px;
+          margin-left: -60px;
+          margin-bottom: 10px;
+          margin-right: 10px;
+        "
+        src="./assets/NicePng.png"
+        alt=""
+      />
+      THOREN JP
+    </h3>
+  </div>
+  <div class="nav-items" style="margin-top: -0.7%">
+    <li><a [routerLink]="['/']">Home</a></li>
+    <li><a [routerLink]="['/about']">About</a></li>
+    <li><a [routerLink]="['/pro2']">Form</a></li>
+    <li><a [routerLink]="'/pro3'">Pro.</a></li>
+    <li><a href="#">Contact</a></li>
+  </div>
+  <img class="sicon" src="./assets/sicon.png" alt="" />
+  <div class="search-icon"></div>
+  <img class="line" src="./assets/3line.png" alt="" />
+  <div class="cancel-icon">
+    <span class="fas fa-times"></span>
+  </div>
+  <form
+    action="#"
+    style="
+      margin-bottom: 8.5px;
+      background-color: rgba(240, 255, 255, 0.075);
+      box-shadow: 0 10px 15px #01214e29, 0 0 0 3px #63879e1d;
+    "
+  >
+    <input type="search" class="search-data" placeholder="Search" required />
+    <!-- <button type="submit" class="fas fa-search">/</button> -->
+  </form>
+</nav>
+<h2
+  style="
+    position: absolute;
+    margin-left: 8%;
+    margin-top: 8%;
+    color: rgba(17, 8, 2, 0.706);
+  "
+>
+  🪐Form : 1
+</h2>
+<!--========================== Form 1 =============== -->
+<div
+  class="cont"
+  data-aos="flip-left"
+  data-aos-easing="ease-out-cubic"
+  data-aos-duration="2000"
+>
+  <div class="cnt">
+    <div class="container mt-5">
+      <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <label for="name" class="form-label text-white">Name:</label>
+
+          <input
+            type="text"
+            id="name"
+            class="form-control"
+            formControlName="name"
+            placeholder="Enter your Name"
+          />
+
+          <div
+            *ngIf="
+              myForm.get('name')?.hasError('required') &&
+              myForm.get('name')?.touched
+            "
+            class="text-warning"
+          >
+            Name field required
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label text-white">Email:</label>
+          <input
+            type="text"
+            id="email"
+            class="form-control"
+            formControlName="email"
+            placeholder="Enter your Email"
+          />
+          <div
+            *ngIf="
+              myForm.get('email')?.hasError('required') &&
+              myForm.get('email')?.touched
+            "
+            class="text-warning"
+          >
+            Email is required
+          </div>
+          <div
+            *ngIf="
+              myForm.get('email')?.hasError('email') &&
+              myForm.get('email')?.touched
+            "
+            class="text-danger"
+          >
+            please enter a valid email address
+          </div>
+        </div>
+        <button
+          type="button"
+          class="btn btn-warning"
+          style="width: 100px; margin-top: 14px"
+          [disabled]="myForm.invalid"
+        >
+          Submit
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- ===========================Form 2 -->
+<h2 class="hd-5">👽Form : 2 / Validation</h2>
+<div
+  class="cont-2"
+  data-aos="flip-left"
+  data-aos-easing="ease-out-cubic"
+  data-aos-duration="2000"
+>
+  <form [formGroup]="loginForm" (ngSubmit)="loginUser()">
+    <input
+      class="form-control"
+      type="text"
+      placeholder="Enter your ID"
+      name="id"
+      formControlName="id"
+    />
+    <span class="text-warning" *ngIf="id && id.invalid && id.touched">
+      Fill the field
+    </span>
+    <br />
+
+    <input
+      class="form-control"
+      type="password"
+      placeholder="Enter Password"
+      name="password"
+      formControlName="password"
+      style="margin-top: 2.6%; margin-bottom: 2%"
+    />
+    <span
+      class="text-warning"
+      *ngIf="password && password.invalid && password.touched"
+    >
+      Fill the password
+    </span>
+
+    <br />
+    <br />
+    <button type="submit" class="btn bg-warning" [disabled]="loginForm.invalid">
+      Login
+    </button>
+  </form>
+</div>
+
+<!-- ===============  form 3  ===================== -->
+<form
+  data-aos="flip-left"
+  class="fm"
+  style="
+    position: absolute;
+    height: 870px;
+    width: 60%;
+    margin-top: 50%;
+    left: 340px;
+    background: linear-gradient(60deg, #f46b45, #eea849);
+    padding: 60px 100px;
+
+    border-radius: 25px;
+  "
+>
+  <h2>Form : 3</h2>
+  <!-- 2 column grid layout with text inputs for the first and last names -->
+  <div class="row mb-4">
+    <div class="col">
+      <div data-mdb-input-init class="form-outline">
+        <input type="text" id="form6Example1" class="form-control" />
+        <label class="form-label" for="form6Example1">First name</label>
+      </div>
+    </div>
+    <div class="col">
+      <div data-mdb-input-init class="form-outline">
+        <input type="text" id="form6Example2" class="form-control" />
+        <label class="form-label" for="form6Example2">Last name</label>
+      </div>
+    </div>
+  </div>
+
+  <!-- Text input -->
+  <div data-mdb-input-init class="form-outline mb-4">
+    <input type="text" id="form6Example3" class="form-control" />
+    <label class="form-label" for="form6Example3">Company name</label>
+  </div>
+
+  <!-- Text input -->
+  <div data-mdb-input-init class="form-outline mb-4">
+    <input type="text" id="form6Example4" class="form-control" />
+    <label class="form-label" for="form6Example4">Address</label>
+  </div>
+
+  <!-- Email input -->
+  <div data-mdb-input-init class="form-outline mb-4">
+    <input type="email" id="form6Example5" class="form-control" />
+    <label class="form-label" for="form6Example5">Email</label>
+  </div>
+
+  <!-- Number input -->
+  <div data-mdb-input-init class="form-outline mb-4">
+    <input type="number" id="form6Example6" class="form-control" />
+    <label class="form-label" for="form6Example6">Phone</label>
+  </div>
+
+  <!-- Message input -->
+  <div data-mdb-input-init class="form-outline mb-4">
+    <textarea class="form-control" id="form6Example7" rows="4"></textarea>
+    <label class="form-label" for="form6Example7">Additional information</label>
+  </div>
+
+  <!-- Checkbox -->
+  <div class="form-check d-flex justify-content-center mb-4">
+    <input
+      class="form-check-input me-2"
+      type="checkbox"
+      value=""
+      id="form6Example8"
+      checked
+    />
+    <label class="form-check-label" for="form6Example8">
+      Create an account?
+    </label>
+  </div>
+
+  <!-- Submit button -->
+  <button
+    data-mdb-ripple-init
+    type="button"
+    class="btn btn-primary btn-block mb-4"
+  >
+    Place order
+  </button>
+</form>
+
+<!-- <div
+  *ngIf="
+    myForm.get('name')?.hasError('required') && myForm.get('name')?.touched
+  "
+  class="text-warning"
+>
+  Name is required
+</div> -->
+
+<!-- Explanation:
+
+*ngIf Directive:
+
+*ngIf is an Angular structural directive that conditionally adds or removes elements from the DOM based on the truthiness of the expression.
+Expression:
+
+myForm.get('name')?.hasError('required'): This part checks if the "name" form control has a validation error with the key 'required'. It uses the ?. operator to handle potential null or undefined values in case 'name' is not found in the form.
+
+myForm.get('name')?.touched: This part checks if the "name" form control has been touched by the user. It uses the ?. operator for null or undefined safety.
+
+The combined expression (myForm.get('name')?.hasError('required') && myForm.get('name')?.touched) checks if the "name" field has the 'required' error and has been touched by the user.
+
+class="text-warning":
+
+This sets the CSS class of the div element to "text-warning," which is a Bootstrap class that defines the text color as yellow. It's often used to indicate a warning or alert.
+<div> Content:
+
+The content inside the div is the message "Name is required." This message will be displayed when the conditions specified in the *ngIf are true. -->

@@ -1,0 +1,308 @@
+<nav>
+  <div class="menu-icon">
+    <span class="fas fa-bars"></span>
+  </div>
+
+  <div class="logo">
+    <h3 class="hd3" style="margin-top: 4%">
+      <img
+        class="im-log"
+        style="
+          height: 55px;
+          width: 60px;
+          margin-left: -60px;
+          margin-bottom: 10px;
+          margin-right: 10px;
+        "
+        src="./assets/NicePng.png"
+        alt=""
+      />
+      THOREN JP
+    </h3>
+  </div>
+  <div class="nav-items" style="margin-top: -0.7%">
+    <li><a [routerLink]="['/']">Home</a></li>
+    <li><a [routerLink]="['/about']">About</a></li>
+    <li><a [routerLink]="['/pro2']">Form</a></li>
+    <li><a [routerLink]="'/pro3'">Pro.</a></li>
+    <li><a href="#">Contact</a></li>
+  </div>
+  <img class="sicon" src="./assets/sicon.png" alt="" />
+  <div class="search-icon"></div>
+  <img class="line" src="./assets/3line.png" alt="" />
+  <div class="cancel-icon">
+    <span class="fas fa-times"></span>
+  </div>
+  <form
+    action="#"
+    style="
+      margin-bottom: 8.5px;
+      background-color: rgba(240, 255, 255, 0.075);
+      box-shadow: 0 10px 15px #01214e29, 0 0 0 3px #63879e1d;
+    "
+  >
+    <input type="search" class="search-data" placeholder="Search" required />
+    <!-- <button type="submit" class="fas fa-search">/</button> -->
+  </form>
+</nav>
+<!-- ==================== Project section -->
+
+<div class="main">
+  <div class="card">
+    <div class="card-header bg-info text-center">
+      <h6>Employee Resistration</h6>
+    </div>
+    <div class="card-body">
+      <!-- =============FORM================= -->
+      <form [formGroup]="employeeForm" (ngSubmit)="formSubmit()">
+        <div class="row mb-2">
+          <!-- =========Department========= -->
+          <div class="form-group col">
+            <select
+              class="form-control"
+              name="department"
+              formControlName="department"
+              [class.is-invalid]="
+                fun['department'].invalid && fun['department'].touched
+              "
+            >
+              <option value="">---Select Deparment---</option>
+              <option value="Frontend Developer">Frontend Developer</option>
+              <option value="Backend Developer">Backend Developer</option>
+              <option value="Full-stack Developer">Full-stack Developer</option>
+            </select>
+            <!-- error msg -->
+            <span
+              class="text-danger"
+              *ngIf="fun['department'].invalid && fun['department'].touched"
+            >
+              Choose the Department
+            </span>
+          </div>
+
+          <!--===== name section ============ -->
+          <div class="form-group col">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Enter Your Name"
+              name="empName"
+              formControlName="empName"
+              [class.is-invalid]="
+                fun['empName'].invalid && fun['empName'].touched
+              "
+            />
+            <span
+              class="text-danger"
+              *ngIf="fun['empName'].invalid && fun['empName'].touched"
+            >
+              Enter your Name please
+            </span>
+          </div>
+        </div>
+        <!-- Mobile no section ============= -->
+        <div class="row">
+          <div class="form-group col">
+            <label>Mobile No.</label>
+            <input
+              type="text"
+              class="form-control"
+              name="mobileNo"
+              formControlName="mobileNo"
+              [class.is-invalid]="
+                fun['mobileNo'].invalid && fun['mobileNo'].touched
+              "
+            />
+            <!-- error msg -->
+            <span
+              class="text-danger"
+              *ngIf="fun['mobileNo'].invalid && fun['mobileNo'].touched"
+            >
+              Fill the mobile number
+            </span>
+          </div>
+
+          <!--========= Gender ==========-->
+          <div class="form-group col">
+            <label>Gender</label>
+            <select
+              class="form-control"
+              name="gender"
+              formControlName="gender"
+              [class.is-invalid]="
+                fun['gender'].invalid && fun['gender'].touched
+              "
+            >
+              <option value="">-----Select-----</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+            <!-- error msg -->
+            <span
+              class="text-danger"
+              *ngIf="fun['gender'].invalid && fun['gender'].touched"
+            >
+              Choose your Gender
+            </span>
+          </div>
+          <!-- ==========DOB============= -->
+          <div class="form-group col">
+            <label>DOB</label>
+
+            <input
+              type="date"
+              class="form-control"
+              name="dob"
+              formControlName="dob"
+              [class.is-invalid]="fun['dob'].invalid && fun['dob'].touched"
+            />
+            <!-- error msg -->
+            <span
+              class="text-danger"
+              *ngIf="fun['dob'].invalid && fun['dob'].touched"
+            >
+              Select your D.O.B
+            </span>
+          </div>
+        </div>
+        <!-- ============EMAIL======== -->
+        <div class="form-group row">
+          <div class="form-group col">
+            <label>Email</label>
+            <input
+              class="form-control"
+              type="email"
+              name="email"
+              formControlName="email"
+              [class.is-invalid]="fun['email'].invalid && fun['email'].touched"
+            />
+            <!-- error msg -->
+            <span
+              class="text-danger"
+              *ngIf="fun['email'].invalid && fun['email'].touched"
+            >
+              Fill your Email ID
+            </span>
+          </div>
+          <!-- ==========Password========== -->
+          <div class="form-group col">
+            <label>Password</label>
+            <input
+              class="form-control"
+              type="password"
+              name="password"
+              formControlName="password"
+              [class.is-invalid]="
+                fun['password'].invalid && fun['password'].touched
+              "
+            />
+            <!-- error msg -->
+            <span
+              class="text-danger"
+              *ngIf="fun['password'].invalid && fun['password'].touched"
+            >
+              Fill your Password
+            </span>
+          </div>
+        </div>
+        <!-- SAVE BUTTON==================== -->
+        <button
+          type="submit"
+          [class.disabled]="employeeForm.invalid"
+          class="btn btn-info mt-3 btn-rounded me-2"
+          data-mdb-ripple-init
+        >
+          Save
+        </button>
+        <!-- RESET BUTTON ==================== -->
+        <button
+          type="button"
+          class="btn btn-warning mt-3 me-2 btn-rounded"
+          data-mdb-ripple-init
+          (click)="resetBtn()"
+        >
+          Reset
+        </button>
+        <!-- CANCEL BUTTON==================== -->
+        <button
+          type="button"
+          class="btn btn-danger mt-3 me-2 btn-rounded"
+          data-mdb-ripple-init
+          (click)="erase()"
+        >
+          Cancel
+        </button>
+      </form>
+    </div>
+  </div>
+  <!-- =========Table================== -->
+  <div class="card" style="position: absolute; margin-top: 78vh">
+    <div class="card-header bg-info text-center"><h6>Employee List</h6></div>
+    <div class="card-body" style="margin-left: 25px; margin-top: -10px">
+      <div class="row">
+        <table
+          class="table table-bordered table-responsive table-striped text-center"
+        >
+          <thead>
+            <tr>
+              <th>Department</th>
+              <th>Employee Name</th>
+              <th>Mobile</th>
+              <th>Gender</th>
+              <th>DOB</th>
+              <th>Email</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Front-end dev</td>
+              <td>Jyoti Prakash Mallik</td>
+              <td>9658025</td>
+              <td>Male</td>
+              <td>05/05/1996</td>
+              <td>yesjp.22@gmail.com</td>
+              <td class="td-1 text-center">
+                <a href="#" cla>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    height="16"
+                    width="16"
+                    viewBox="0 0 512 512"
+                  >
+                    <path
+                      d="M471.6 21.7c-21.9-21.9-57.3-21.9-79.2 0L362.3 51.7l97.9 97.9 30.1-30.1c21.9-21.9 21.9-57.3 0-79.2L471.6 21.7zm-299.2 220c-6.1 6.1-10.8 13.6-13.5 21.9l-29.6 88.8c-2.9 8.6-.6 18.1 5.8 24.6s15.9 8.7 24.6 5.8l88.8-29.6c8.2-2.7 15.7-7.4 21.9-13.5L437.7 172.3 339.7 74.3 172.4 241.7zM96 64C43 64 0 107 0 160V416c0 53 43 96 96 96H352c53 0 96-43 96-96V320c0-17.7-14.3-32-32-32s-32 14.3-32 32v96c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V160c0-17.7 14.3-32 32-32h96c17.7 0 32-14.3 32-32s-14.3-32-32-32H96z"
+                    />
+                  </svg>
+                </a>
+                <a href="#"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    height="16"
+                    width="6"
+                    viewBox="0 0 192 512"
+                  >
+                    <path
+                      d="M48 80a48 48 0 1 1 96 0A48 48 0 1 1 48 80zM0 224c0-17.7 14.3-32 32-32H96c17.7 0 32 14.3 32 32V448h32c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H64V256H32c-17.7 0-32-14.3-32-32z"
+                    /></svg
+                ></a>
+                <a href="#">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    height="16"
+                    width="14"
+                    viewBox="0 0 448 512"
+                  >
+                    <path
+                      d="M135.2 17.7C140.6 6.8 151.7 0 163.8 0H284.2c12.1 0 23.2 6.8 28.6 17.7L320 32h96c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 96 0 81.7 0 64S14.3 32 32 32h96l7.2-14.3zM32 128H416V448c0 35.3-28.7 64-64 64H96c-35.3 0-64-28.7-64-64V128zm96 64c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16z"
+                    />
+                  </svg>
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

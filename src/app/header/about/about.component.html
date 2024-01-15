@@ -1,0 +1,149 @@
+<nav>
+  <div class="menu-icon">
+    <span class="fas fa-bars"></span>
+  </div>
+
+  <div class="logo">
+    <h3 class="hd3" style="margin-top: 4%">
+      <img
+        class="im-log"
+        style="
+          height: 55px;
+          width: 60px;
+          margin-left: -60px;
+          margin-bottom: 10px;
+          margin-right: 10px;
+        "
+        src="./assets/NicePng.png"
+        alt=""
+      />
+      THOREN JP
+    </h3>
+  </div>
+  <div class="nav-items" style="margin-top: -0.7%">
+    <li><a [routerLink]="['/']">Home</a></li>
+    <li><a [routerLink]="['/about']">About</a></li>
+    <li><a [routerLink]="['/pro2']">Form</a></li>
+    <li><a [routerLink]="'/pro3'">Pro.</a></li>
+    <li><a href="#">Contact</a></li>
+  </div>
+  <img class="sicon" src="./assets/sicon.png" alt="" />
+  <div class="search-icon"></div>
+  <img class="line" src="./assets/3line.png" alt="" />
+  <div class="cancel-icon">
+    <span class="fas fa-times"></span>
+  </div>
+  <form
+    action="#"
+    style="
+      margin-bottom: 8.5px;
+      background-color: rgba(240, 255, 255, 0.075);
+      box-shadow: 0 10px 15px #01214e29, 0 0 0 3px #63879e1d;
+    "
+  >
+    <input type="search" class="search-data" placeholder="Search" required />
+    <!-- <button type="submit" class="fas fa-search">/</button> -->
+  </form>
+</nav>
+
+<!-- //////////////////////////////////////////////////////////////////// -->
+<div class="cont">
+  <div class="bod">
+    <div class="main">
+      <input type="checkbox" id="chk" aria-hidden="true" />
+
+      <div class="signup">
+        <form>
+          <label
+            for="chk"
+            aria-hidden="true"
+            style="font-family: tahoma; font-size: 26px"
+            >Sign Up,Now!</label
+          >
+          <input
+            type="text"
+            name="txt"
+            placeholder="User name"
+            required=""
+            [(ngModel)]="signupObj.userName"
+            style="
+              margin-top: 20%;
+              box-shadow: 0 10px 60px #01214e, 0 0 0 4px #bebebeeb;
+            "
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="User ID"
+            required=""
+            [(ngModel)]="signupObj.email"
+            style="box-shadow: 0 10px 60px #01214e, 0 0 0 4px #bebebeeb"
+          />
+          <input
+            type="password"
+            name="pswd"
+            placeholder="Password"
+            required=""
+            [(ngModel)]="signupObj.password"
+            style="
+              box-shadow: 0 10px 60px #01214e, 0 0 0 4px #bebebeeb;
+              margin-bottom: 8%;
+            "
+          />
+          <button
+            class="button-85"
+            type="button"
+            (click)="onSignup()"
+            style="margin-top: 5%"
+          >
+            <h4 style="color: #cccacabf; font-size: 20px">Submit</h4>
+          </button>
+        </form>
+      </div>
+
+      <div class="login">
+        <form>
+          <label
+            for="chk"
+            aria-hidden="true"
+            style="
+              background: linear-gradient(to right, #0b069e 0%, #0bdfb8 100%);
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;
+            "
+            >Login.</label
+          >
+          <input
+            type="text"
+            name="userNmae"
+            placeholder="User ID"
+            required=""
+            [(ngModel)]="loginObj.userName"
+            style="
+              box-shadow: 0 10px 60px #87b4f464, 0 0 0 4px #bebebeeb;
+              background-color: rgb(192, 190, 190);
+              color: black;
+            "
+          />
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            required=""
+            [(ngModel)]="loginObj.password"
+            style="
+              box-shadow: 0 10px 60px #bbd7ffa8, 0 0 0 4px #bebebeeb;
+              background-color: rgb(192, 190, 190);
+              color: black;
+              margin-bottom: 24px;
+            "
+          />
+          <button class="button-85" type="button" (click)="onLogin()">
+            Login
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div></div>
+</div>
